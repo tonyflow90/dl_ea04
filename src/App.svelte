@@ -98,6 +98,8 @@
 	let neuronCount = 100;
 	let maxWeight = 0;
 	let minWeight = 0;
+
+	
 </script>
 
 <header>
