@@ -691,6 +691,12 @@ var app = (function () {
         };
     }
 
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+
     function get_spread_update(levels, updates) {
         const update = {};
         const to_null_out = {};
@@ -948,7 +954,7 @@ var app = (function () {
 
     const file$c = "node_modules\\smelte\\src\\components\\Icon\\Icon.svelte";
 
-    function create_fragment$d(ctx) {
+    function create_fragment$e(ctx) {
     	let i;
     	let i_class_value;
     	let i_style_value;
@@ -1038,7 +1044,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$d.name,
+    		id: create_fragment$e.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1047,7 +1053,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$d($$self, $$props, $$invalidate) {
+    function instance$e($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Icon", slots, ['default']);
     	let { small = false } = $$props;
@@ -1093,7 +1099,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {
     			small: 0,
     			xs: 1,
     			reverse: 2,
@@ -1105,7 +1111,7 @@ var app = (function () {
     			component: this,
     			tagName: "Icon",
     			options,
-    			id: create_fragment$d.name
+    			id: create_fragment$e.name
     		});
     	}
 
@@ -1738,7 +1744,7 @@ var app = (function () {
     	return block_1;
     }
 
-    function create_fragment$c(ctx) {
+    function create_fragment$d(ctx) {
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
@@ -1811,7 +1817,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_fragment$c.name,
+    		id: create_fragment$d.name,
     		type: "component",
     		source: "",
     		ctx
@@ -1830,7 +1836,7 @@ var app = (function () {
     const disabledDefault = "bg-gray-300 text-gray-500 dark:bg-dark-400 pointer-events-none hover:bg-gray-300 cursor-default";
     const elevationDefault = "hover:shadow shadow";
 
-    function instance$c($$self, $$props, $$invalidate) {
+    function instance$d($$self, $$props, $$invalidate) {
     	let normal;
     	let lighter;
     	let { $$slots: slots = {}, $$scope } = $$props;
@@ -2137,8 +2143,8 @@ var app = (function () {
     		init(
     			this,
     			options,
-    			instance$c,
-    			create_fragment$c,
+    			instance$d,
+    			create_fragment$d,
     			safe_not_equal,
     			{
     				value: 0,
@@ -2176,7 +2182,7 @@ var app = (function () {
     			component: this,
     			tagName: "Button",
     			options,
-    			id: create_fragment$c.name
+    			id: create_fragment$d.name
     		});
     	}
 
@@ -2452,7 +2458,7 @@ var app = (function () {
 
     const file$a = "node_modules\\smelte\\src\\components\\Util\\Spacer.svelte";
 
-    function create_fragment$b(ctx) {
+    function create_fragment$c(ctx) {
     	let div;
 
     	const block = {
@@ -2477,7 +2483,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$b.name,
+    		id: create_fragment$c.name,
     		type: "component",
     		source: "",
     		ctx
@@ -2486,7 +2492,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$b($$self, $$props) {
+    function instance$c($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Spacer", slots, []);
     	const writable_props = [];
@@ -2501,13 +2507,13 @@ var app = (function () {
     class Spacer$1 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+    		init(this, options, instance$c, create_fragment$c, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Spacer",
     			options,
-    			id: create_fragment$b.name
+    			id: create_fragment$c.name
     		});
     	}
     }
@@ -2674,7 +2680,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$a(ctx) {
+    function create_fragment$b(ctx) {
     	let li;
     	let t0;
     	let div1;
@@ -2819,7 +2825,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$a.name,
+    		id: create_fragment$b.name,
     		type: "component",
     		source: "",
     		ctx
@@ -2832,7 +2838,7 @@ var app = (function () {
     const selectedClassesDefault = "bg-gray-200 dark:bg-primary-transLight";
     const subheadingClassesDefault = "text-gray-600 p-0 text-sm";
 
-    function instance$a($$self, $$props, $$invalidate) {
+    function instance$b($$self, $$props, $$invalidate) {
     	let c;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ListItem", slots, ['default']);
@@ -2975,7 +2981,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {
     			icon: 0,
     			id: 11,
     			value: 10,
@@ -2998,7 +3004,7 @@ var app = (function () {
     			component: this,
     			tagName: "ListItem",
     			options,
-    			id: create_fragment$a.name
+    			id: create_fragment$b.name
     		});
     	}
 
@@ -3621,7 +3627,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$9(ctx) {
+    function create_fragment$a(ctx) {
     	let ul;
     	let current;
     	let each_value = /*items*/ ctx[1];
@@ -3723,7 +3729,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$9.name,
+    		id: create_fragment$a.name,
     		type: "component",
     		source: "",
     		ctx
@@ -3748,7 +3754,7 @@ var app = (function () {
     	return i;
     }
 
-    function instance$9($$self, $$props, $$invalidate) {
+    function instance$a($$self, $$props, $$invalidate) {
     	let c;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("List", slots, ['item']);
@@ -3865,7 +3871,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {
     			items: 1,
     			value: 0,
     			dense: 2,
@@ -3883,7 +3889,7 @@ var app = (function () {
     			component: this,
     			tagName: "List",
     			options,
-    			id: create_fragment$9.name
+    			id: create_fragment$a.name
     		});
     	}
 
@@ -3979,7 +3985,7 @@ var app = (function () {
     /* node_modules\smelte\src\components\TextField\Label.svelte generated by Svelte v3.38.2 */
     const file$7 = "node_modules\\smelte\\src\\components\\TextField\\Label.svelte";
 
-    function create_fragment$8(ctx) {
+    function create_fragment$9(ctx) {
     	let label;
     	let label_class_value;
     	let current;
@@ -4050,7 +4056,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$8.name,
+    		id: create_fragment$9.name,
     		type: "component",
     		source: "",
     		ctx
@@ -4059,7 +4065,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$8($$self, $$props, $$invalidate) {
+    function instance$9($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Label", slots, ['default']);
     	let { focused = false } = $$props;
@@ -4176,7 +4182,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
     			focused: 3,
     			error: 4,
     			outlined: 5,
@@ -4195,7 +4201,7 @@ var app = (function () {
     			component: this,
     			tagName: "Label",
     			options,
-    			id: create_fragment$8.name
+    			id: create_fragment$9.name
     		});
     	}
 
@@ -4299,7 +4305,7 @@ var app = (function () {
     /* node_modules\smelte\src\components\TextField\Hint.svelte generated by Svelte v3.38.2 */
     const file$6 = "node_modules\\smelte\\src\\components\\TextField\\Hint.svelte";
 
-    function create_fragment$7(ctx) {
+    function create_fragment$8(ctx) {
     	let div;
     	let html_tag;
     	let raw_value = (/*hint*/ ctx[1] || "") + "";
@@ -4360,7 +4366,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$7.name,
+    		id: create_fragment$8.name,
     		type: "component",
     		source: "",
     		ctx
@@ -4369,7 +4375,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$7($$self, $$props, $$invalidate) {
+    function instance$8($$self, $$props, $$invalidate) {
     	let classes;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Hint", slots, []);
@@ -4444,7 +4450,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
     			error: 0,
     			hint: 1,
     			add: 4,
@@ -4457,7 +4463,7 @@ var app = (function () {
     			component: this,
     			tagName: "Hint",
     			options,
-    			id: create_fragment$7.name
+    			id: create_fragment$8.name
     		});
     	}
 
@@ -4513,7 +4519,7 @@ var app = (function () {
     /* node_modules\smelte\src\components\TextField\Underline.svelte generated by Svelte v3.38.2 */
     const file$5 = "node_modules\\smelte\\src\\components\\TextField\\Underline.svelte";
 
-    function create_fragment$6(ctx) {
+    function create_fragment$7(ctx) {
     	let div1;
     	let div0;
     	let div0_class_value;
@@ -4560,7 +4566,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$6.name,
+    		id: create_fragment$7.name,
     		type: "component",
     		source: "",
     		ctx
@@ -4569,7 +4575,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$6($$self, $$props, $$invalidate) {
+    function instance$7($$self, $$props, $$invalidate) {
     	let classes;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Underline", slots, []);
@@ -4672,7 +4678,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
     			noUnderline: 0,
     			outlined: 1,
     			focused: 4,
@@ -4688,7 +4694,7 @@ var app = (function () {
     			component: this,
     			tagName: "Underline",
     			options,
-    			id: create_fragment$6.name
+    			id: create_fragment$7.name
     		});
     	}
 
@@ -5539,7 +5545,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$5(ctx) {
+    function create_fragment$6(ctx) {
     	let div;
     	let t0;
     	let t1;
@@ -5758,7 +5764,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$5.name,
+    		id: create_fragment$6.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5772,7 +5778,7 @@ var app = (function () {
     const appendDefault = "absolute right-0 top-0 pb-2 pr-4 pt-4 text-gray-700 z-10";
     const prependDefault = "absolute left-0 top-0 pb-2 pl-2 pt-4 text-xs text-gray-700 z-10";
 
-    function instance$5($$self, $$props, $$invalidate) {
+    function instance$6($$self, $$props, $$invalidate) {
     	let showHint;
     	let labelOnTop;
     	let iClasses;
@@ -6205,8 +6211,8 @@ var app = (function () {
     		init(
     			this,
     			options,
-    			instance$5,
-    			create_fragment$5,
+    			instance$6,
+    			create_fragment$6,
     			safe_not_equal,
     			{
     				outlined: 2,
@@ -6247,7 +6253,7 @@ var app = (function () {
     			component: this,
     			tagName: "TextField",
     			options,
-    			id: create_fragment$5.name
+    			id: create_fragment$6.name
     		});
     	}
 
@@ -6814,7 +6820,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$4(ctx) {
+    function create_fragment$5(ctx) {
     	let div;
     	let t;
     	let current;
@@ -6913,7 +6919,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$4.name,
+    		id: create_fragment$5.name,
     		type: "component",
     		source: "",
     		ctx
@@ -6929,7 +6935,7 @@ var app = (function () {
     	return it.map(i => typeof i !== "object" ? { value: i, text: i } : i);
     }
 
-    function instance$4($$self, $$props, $$invalidate) {
+    function instance$5($$self, $$props, $$invalidate) {
     	let filteredItems;
     	let c;
     	let o;
@@ -7227,8 +7233,8 @@ var app = (function () {
     		init(
     			this,
     			options,
-    			instance$4,
-    			create_fragment$4,
+    			instance$5,
+    			create_fragment$5,
     			safe_not_equal,
     			{
     				items: 32,
@@ -7268,7 +7274,7 @@ var app = (function () {
     			component: this,
     			tagName: "Select",
     			options,
-    			id: create_fragment$4.name
+    			id: create_fragment$5.name
     		});
     	}
 
@@ -7509,7 +7515,7 @@ var app = (function () {
 
     const file$2 = "node_modules\\smelte\\src\\components\\ProgressCircular\\ProgressCircular.svelte";
 
-    function create_fragment$3(ctx) {
+    function create_fragment$4(ctx) {
     	let svg;
     	let circle;
     	let circle_class_value;
@@ -7584,7 +7590,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$3.name,
+    		id: create_fragment$4.name,
     		type: "component",
     		source: "",
     		ctx
@@ -7593,7 +7599,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$3($$self, $$props, $$invalidate) {
+    function instance$4($$self, $$props, $$invalidate) {
     	let style;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ProgressCircular", slots, []);
@@ -7646,13 +7652,13 @@ var app = (function () {
     class ProgressCircular extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { progress: 4, color: 0, width: 1, size: 2 });
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { progress: 4, color: 0, width: 1, size: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "ProgressCircular",
     			options,
-    			id: create_fragment$3.name
+    			id: create_fragment$4.name
     		});
     	}
 
@@ -8038,7 +8044,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$2(ctx) {
+    function create_fragment$3(ctx) {
     	let if_block_anchor;
     	let current;
     	let if_block = /*value*/ ctx[0] && running === /*hash*/ ctx[1] && create_if_block$1(ctx);
@@ -8097,7 +8103,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$2.name,
+    		id: create_fragment$3.name,
     		type: "component",
     		source: "",
     		ctx
@@ -8110,7 +8116,7 @@ var app = (function () {
     let running = false;
     const wrapperDefault = "fixed w-full h-full flex items-center justify-center pointer-events-none";
 
-    function instance$2($$self, $$props, $$invalidate) {
+    function instance$3($$self, $$props, $$invalidate) {
     	let toggler;
     	let c;
     	let $queue;
@@ -8351,7 +8357,7 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
     			value: 0,
     			timeout: 2,
     			inProps: 3,
@@ -8371,7 +8377,7 @@ var app = (function () {
     			component: this,
     			tagName: "Snackbar",
     			options,
-    			id: create_fragment$2.name
+    			id: create_fragment$3.name
     		});
     	}
 
@@ -8519,7 +8525,9 @@ var app = (function () {
 
     /* src\components\RNNModel.svelte generated by Svelte v3.38.2 */
 
-    function create_fragment$1(ctx) {
+    const { console: console_1 } = globals;
+
+    function create_fragment$2(ctx) {
     	const block = {
     		c: noop,
     		l: function claim(nodes) {
@@ -8534,7 +8542,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$1.name,
+    		id: create_fragment$2.name,
     		type: "component",
     		source: "",
     		ctx
@@ -8543,7 +8551,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$1($$self, $$props, $$invalidate) {
+    function instance$2($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("RNNModel", slots, []);
     	const dispatch = createEventDispatcher();
@@ -8558,19 +8566,20 @@ var app = (function () {
     	// Data
     	let trainingData;
 
-    	let { modelName = "RNNModel" } = $$props;
-    	let { model } = $$props;
-    	let { showTraining = true } = $$props;
-    	let { chart = undefined } = $$props;
+    	// Model
+    	let modelName = "RNNModel";
+
+    	let model;
     	let { batchSize = 32 } = $$props; // Neuronen min 32 max 512
     	let { epochs = 10 } = $$props; // Trainings Epochen 50 iterations
     	let { hiddenLayerCount = 1 } = $$props; // Anzahl der hidden Layer
     	let { minWeight = 0 } = $$props;
     	let { maxWeight = 1 } = $$props;
-    	let { activationFunction = "none" } = $$props;
-    	let { selectedOptimizer = "sgd" } = $$props; // Optimizer
+    	let { activationFunction = "softmax" } = $$props;
+    	let { selectedOptimizer = "adam" } = $$props; // Optimizer
     	let { learningRate = 0.001 } = $$props; // Lernrate
-    	let { neuronCount = 1 } = $$props;
+    	let { neuronCount = 10 } = $$props;
+    	let { dataLog } = $$props;
 
     	const activationList = [
     		"none",
@@ -8593,70 +8602,94 @@ var app = (function () {
 
     	// lifecycle functions
     	onMount(async () => {
-    		// try {
-    		//     model = await loadModel(modelName);
-    		// } catch (error) {
-    		//     console.warn(error);
-    		// }
-    		if (!model) $$invalidate(0, model = createModel());
+    		try {
+    			model = await loadModel(modelName);
+    		} catch(error) {
+    			console.warn(error);
+    		}
+
+    		if (!model) model = init();
     	});
 
     	// functions
-    	// Model
-    	let createModel = () => {
-    		// Create a sequential model
-    		let model = tf.sequential();
-
-    		let weights = [
-    			tf.randomUniform([1, neuronCount], 0, 1),
-    			tf.randomUniform([neuronCount], minWeight, maxWeight)
-    		];
-
-    		// Add a input layer
-    		let inputConfig = {
-    			name: "inputlayer",
-    			inputShape: [1],
-    			units: neuronCount,
-    			weights,
-    			useBias: true
-    		};
-
-    		if (activationFunction != "none") inputConfig.activation = activationFunction;
-    		let layer = tf.layers.dense(inputConfig);
-    		model.add(layer);
-
-    		// weights = [
-    		//     tf.randomUniform([1, neuronCount], 0, 1),
-    		//     tf.randomUniform([neuronCount], minWeight, maxWeight),
-    		// ];
-    		// Add a hidden layer
-    		let hiddenConfig = {
-    			name: "hiddenlayer",
-    			units: neuronCount,
-    			// weights: weights,
-    			useBias: true
-    		};
-
-    		if (activationFunction != "none") inputConfig.activation = activationFunction;
-
-    		for (let i = 0; i < hiddenLayerCount; i++) {
-    			hiddenConfig.name = "hiddenlayer_" + i;
-    			let hiddenLayer = tf.layers.dense(hiddenConfig);
-    			model.add(hiddenLayer);
-    		}
-
-    		// Add an output layer
-    		let outputConfig = { units: 1, useBias: true };
-
-    		model.add(tf.layers.dense(outputConfig));
+    	let init = async () => {
+    		model = await create(40, 40, [2]);
+    		await compile();
+    		await fit();
     		return model;
     	};
 
-    	let saveModel = async (model, name) => {
+    	// def create_model(total_words, hidden_size, num_steps, optimizer='adam'):
+    	// model = tf.keras.models.Sequential()
+    	// # Embedding layer / Input layer
+    	// model.add(tf.keras.layers.Embedding(
+    	//     total_words, hidden_size, input_length=num_steps))
+    	// # 4 LSTM layers
+    	// model.add(tf.keras.layers.LSTM(units=hidden_size, return_sequences=True))
+    	// model.add(tf.keras.layers.LSTM(units=hidden_size, return_sequences=True))
+    	// model.add(tf.keras.layers.LSTM(units=hidden_size, return_sequences=True))
+    	// model.add(tf.keras.layers.LSTM(units=hidden_size, return_sequences=True))
+    	// # Fully Connected layer
+    	// model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dense(1024)))
+    	// model.add(tf.keras.layers.Activation('relu'))
+    	// model.add(tf.keras.layers.Dropout(0.3, seed=0.2))
+    	// model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dense(512)))
+    	// model.add(tf.keras.layers.Activation('relu'))
+    	// # Output Layer
+    	// model.add(tf.keras.layers.TimeDistributed(
+    	//     tf.keras.layers.Dense(total_words)))
+    	// model.add(tf.keras.layers.Activation('softmax'))
+    	// model.compile(loss='categorical_crossentropy', optimizer=optimizer,
+    	//               metrics=[tf.keras.metrics.categorical_accuracy])
+    	// return model
+    	let create = async () => {
+    		const model = tf.sequential();
+    		const rnnUnits = 32;
+    		model.add(tf.layers.simpleRNN({ units: rnnUnits, inputShape }));
+    		model.add(tf.layers.dense({ units: 1 }));
+    		return model;
+    	}; // let model = tf.sequential();
+    	// // Add a input layer
+    	// let inputConfig = {
+    	//     name: "inputlayer",
+
+    	//     inputShape: [1],
+    	//     units: neuronCount,
+    	//     useBias: true,
+    	// };
+    	// if (activationFunction != "none")
+    	//     inputConfig.activation = activationFunction;
+    	// let layer = tf.layers.dense(inputConfig);
+    	// model.add(layer);
+    	// // model.add(
+    	// //     tf.layers.dense({ units: neuronCount, activation: "softmax" })
+    	// // );
+    	// return model;
+    	let compile = async () => {
+    		const optimizer = getOptimizer(selectedOptimizer, learningRate);
+
+    		// Prepare the model for training.
+    		return model.compile({
+    			optimizer,
+    			loss: "categoricalCrossentropy", //tf.losses.meanSquaredError,
+    			metrics: ["mse"]
+    		});
+    	};
+
+    	let fit = async (inputs, labels) => {
+    		return model.fit(inputs, labels, {
+    			batchSize,
+    			epochs,
+    			shuffle: true,
+    			callbacks: [dataLog]
+    		});
+    	};
+
+    	let save = async (model, name) => {
     		return await model.save(`localstorage://${name}`);
     	};
 
-    	let loadModel = async name => {
+    	let load = async name => {
     		return await tf.loadLayersModel(`localstorage://${name}`);
     	};
 
@@ -8693,44 +8726,11 @@ var app = (function () {
     		return optimizer;
     	};
 
-    	let prepareData = data => {
-    		return tf.tidy(() => {
-    			// Step 1. Shuffle the data
-    			tf.util.shuffle(data);
-
-    			// Step 2. Convert data to Tensor
-    			const inputs = data.map(d => d.x);
-
-    			const labels = data.map(d => d.y);
-    			const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
-    			const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
-
-    			//Step 3. Normalize the data to the range 0 - 1 using min-max scaling
-    			const inputMax = inputTensor.max();
-
-    			const inputMin = inputTensor.min();
-    			const labelMax = labelTensor.max();
-    			const labelMin = labelTensor.min();
-    			const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
-    			const normalizedLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
-
-    			return {
-    				inputs: normalizedInputs,
-    				labels: normalizedLabels,
-    				// Return the min/max bounds so we can use them later.
-    				inputMax,
-    				inputMin,
-    				labelMax,
-    				labelMin
-    			};
-    		});
-    	};
-
     	async function train(data) {
     		dispatch("training", true);
 
     		// create model with new parms
-    		$$invalidate(0, model = createModel());
+    		model = createModel();
 
     		// set training data
     		trainingData = data;
@@ -8793,36 +8793,7 @@ var app = (function () {
     		return predictedPoints;
     	}
 
-    	async function predict2(inputData) {
-    		dispatch("predicting", true);
-    		const normalizationData = prepareData(inputData);
-    		const { inputMax, inputMin, labelMin, labelMax } = normalizationData;
-    		const inputs = inputData.map(d => d.x);
-    		const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
-    		const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
-
-    		const [x, y] = tf.tidy(() => {
-    			const ys = model.predict(normalizedInputs);
-    			const unNormXs = normalizedInputs.mul(inputMax.sub(inputMin)).add(inputMin);
-    			const unNormPreds = ys.mul(labelMax.sub(labelMin)).add(labelMin);
-
-    			// Un-normalize the data
-    			return [unNormXs.dataSync(), unNormPreds.dataSync()];
-    		});
-
-    		const predictedPoints = await Array.from(x).map((val, i) => {
-    			return { x: val, y: y[i] };
-    		});
-
-    		dispatch("predicting", false);
-    		return predictedPoints;
-    	}
-
     	const writable_props = [
-    		"modelName",
-    		"model",
-    		"showTraining",
-    		"chart",
     		"batchSize",
     		"epochs",
     		"hiddenLayerCount",
@@ -8831,27 +8802,25 @@ var app = (function () {
     		"activationFunction",
     		"selectedOptimizer",
     		"learningRate",
-    		"neuronCount"
+    		"neuronCount",
+    		"dataLog"
     	];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<RNNModel> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<RNNModel> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ("modelName" in $$props) $$invalidate(1, modelName = $$props.modelName);
-    		if ("model" in $$props) $$invalidate(0, model = $$props.model);
-    		if ("showTraining" in $$props) $$invalidate(2, showTraining = $$props.showTraining);
-    		if ("chart" in $$props) $$invalidate(3, chart = $$props.chart);
-    		if ("batchSize" in $$props) $$invalidate(4, batchSize = $$props.batchSize);
-    		if ("epochs" in $$props) $$invalidate(5, epochs = $$props.epochs);
-    		if ("hiddenLayerCount" in $$props) $$invalidate(6, hiddenLayerCount = $$props.hiddenLayerCount);
-    		if ("minWeight" in $$props) $$invalidate(7, minWeight = $$props.minWeight);
-    		if ("maxWeight" in $$props) $$invalidate(8, maxWeight = $$props.maxWeight);
-    		if ("activationFunction" in $$props) $$invalidate(9, activationFunction = $$props.activationFunction);
-    		if ("selectedOptimizer" in $$props) $$invalidate(10, selectedOptimizer = $$props.selectedOptimizer);
-    		if ("learningRate" in $$props) $$invalidate(11, learningRate = $$props.learningRate);
-    		if ("neuronCount" in $$props) $$invalidate(12, neuronCount = $$props.neuronCount);
+    		if ("batchSize" in $$props) $$invalidate(0, batchSize = $$props.batchSize);
+    		if ("epochs" in $$props) $$invalidate(1, epochs = $$props.epochs);
+    		if ("hiddenLayerCount" in $$props) $$invalidate(2, hiddenLayerCount = $$props.hiddenLayerCount);
+    		if ("minWeight" in $$props) $$invalidate(3, minWeight = $$props.minWeight);
+    		if ("maxWeight" in $$props) $$invalidate(4, maxWeight = $$props.maxWeight);
+    		if ("activationFunction" in $$props) $$invalidate(5, activationFunction = $$props.activationFunction);
+    		if ("selectedOptimizer" in $$props) $$invalidate(6, selectedOptimizer = $$props.selectedOptimizer);
+    		if ("learningRate" in $$props) $$invalidate(7, learningRate = $$props.learningRate);
+    		if ("neuronCount" in $$props) $$invalidate(8, neuronCount = $$props.neuronCount);
+    		if ("dataLog" in $$props) $$invalidate(9, dataLog = $$props.dataLog);
     	};
 
     	$$self.$capture_state = () => ({
@@ -8864,8 +8833,6 @@ var app = (function () {
     		trainingData,
     		modelName,
     		model,
-    		showTraining,
-    		chart,
     		batchSize,
     		epochs,
     		hiddenLayerCount,
@@ -8875,16 +8842,18 @@ var app = (function () {
     		selectedOptimizer,
     		learningRate,
     		neuronCount,
+    		dataLog,
     		activationList,
     		optimizerList,
-    		createModel,
-    		saveModel,
-    		loadModel,
+    		init,
+    		create,
+    		compile,
+    		fit,
+    		save,
+    		load,
     		getOptimizer,
-    		prepareData,
     		train,
-    		predict,
-    		predict2
+    		predict
     	});
 
     	$$self.$inject_state = $$props => {
@@ -8892,24 +8861,25 @@ var app = (function () {
     		if ("training" in $$props) training = $$props.training;
     		if ("error" in $$props) error = $$props.error;
     		if ("trainingData" in $$props) trainingData = $$props.trainingData;
-    		if ("modelName" in $$props) $$invalidate(1, modelName = $$props.modelName);
-    		if ("model" in $$props) $$invalidate(0, model = $$props.model);
-    		if ("showTraining" in $$props) $$invalidate(2, showTraining = $$props.showTraining);
-    		if ("chart" in $$props) $$invalidate(3, chart = $$props.chart);
-    		if ("batchSize" in $$props) $$invalidate(4, batchSize = $$props.batchSize);
-    		if ("epochs" in $$props) $$invalidate(5, epochs = $$props.epochs);
-    		if ("hiddenLayerCount" in $$props) $$invalidate(6, hiddenLayerCount = $$props.hiddenLayerCount);
-    		if ("minWeight" in $$props) $$invalidate(7, minWeight = $$props.minWeight);
-    		if ("maxWeight" in $$props) $$invalidate(8, maxWeight = $$props.maxWeight);
-    		if ("activationFunction" in $$props) $$invalidate(9, activationFunction = $$props.activationFunction);
-    		if ("selectedOptimizer" in $$props) $$invalidate(10, selectedOptimizer = $$props.selectedOptimizer);
-    		if ("learningRate" in $$props) $$invalidate(11, learningRate = $$props.learningRate);
-    		if ("neuronCount" in $$props) $$invalidate(12, neuronCount = $$props.neuronCount);
-    		if ("createModel" in $$props) createModel = $$props.createModel;
-    		if ("saveModel" in $$props) saveModel = $$props.saveModel;
-    		if ("loadModel" in $$props) loadModel = $$props.loadModel;
+    		if ("modelName" in $$props) modelName = $$props.modelName;
+    		if ("model" in $$props) model = $$props.model;
+    		if ("batchSize" in $$props) $$invalidate(0, batchSize = $$props.batchSize);
+    		if ("epochs" in $$props) $$invalidate(1, epochs = $$props.epochs);
+    		if ("hiddenLayerCount" in $$props) $$invalidate(2, hiddenLayerCount = $$props.hiddenLayerCount);
+    		if ("minWeight" in $$props) $$invalidate(3, minWeight = $$props.minWeight);
+    		if ("maxWeight" in $$props) $$invalidate(4, maxWeight = $$props.maxWeight);
+    		if ("activationFunction" in $$props) $$invalidate(5, activationFunction = $$props.activationFunction);
+    		if ("selectedOptimizer" in $$props) $$invalidate(6, selectedOptimizer = $$props.selectedOptimizer);
+    		if ("learningRate" in $$props) $$invalidate(7, learningRate = $$props.learningRate);
+    		if ("neuronCount" in $$props) $$invalidate(8, neuronCount = $$props.neuronCount);
+    		if ("dataLog" in $$props) $$invalidate(9, dataLog = $$props.dataLog);
+    		if ("init" in $$props) init = $$props.init;
+    		if ("create" in $$props) create = $$props.create;
+    		if ("compile" in $$props) compile = $$props.compile;
+    		if ("fit" in $$props) fit = $$props.fit;
+    		if ("save" in $$props) save = $$props.save;
+    		if ("load" in $$props) load = $$props.load;
     		if ("getOptimizer" in $$props) getOptimizer = $$props.getOptimizer;
-    		if ("prepareData" in $$props) prepareData = $$props.prepareData;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -8917,10 +8887,6 @@ var app = (function () {
     	}
 
     	return [
-    		model,
-    		modelName,
-    		showTraining,
-    		chart,
     		batchSize,
     		epochs,
     		hiddenLayerCount,
@@ -8930,9 +8896,9 @@ var app = (function () {
     		selectedOptimizer,
     		learningRate,
     		neuronCount,
+    		dataLog,
     		train,
-    		predict,
-    		predict2
+    		predict
     	];
     }
 
@@ -8940,70 +8906,34 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
-    			modelName: 1,
-    			model: 0,
-    			showTraining: 2,
-    			chart: 3,
-    			batchSize: 4,
-    			epochs: 5,
-    			hiddenLayerCount: 6,
-    			minWeight: 7,
-    			maxWeight: 8,
-    			activationFunction: 9,
-    			selectedOptimizer: 10,
-    			learningRate: 11,
-    			neuronCount: 12,
-    			train: 13,
-    			predict: 14,
-    			predict2: 15
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+    			batchSize: 0,
+    			epochs: 1,
+    			hiddenLayerCount: 2,
+    			minWeight: 3,
+    			maxWeight: 4,
+    			activationFunction: 5,
+    			selectedOptimizer: 6,
+    			learningRate: 7,
+    			neuronCount: 8,
+    			dataLog: 9,
+    			train: 10,
+    			predict: 11
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "RNNModel",
     			options,
-    			id: create_fragment$1.name
+    			id: create_fragment$2.name
     		});
 
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*model*/ ctx[0] === undefined && !("model" in props)) {
-    			console.warn("<RNNModel> was created without expected prop 'model'");
+    		if (/*dataLog*/ ctx[9] === undefined && !("dataLog" in props)) {
+    			console_1.warn("<RNNModel> was created without expected prop 'dataLog'");
     		}
-    	}
-
-    	get modelName() {
-    		throw new Error("<RNNModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set modelName(value) {
-    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get model() {
-    		throw new Error("<RNNModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set model(value) {
-    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get showTraining() {
-    		throw new Error("<RNNModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set showTraining(value) {
-    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get chart() {
-    		throw new Error("<RNNModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set chart(value) {
-    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get batchSize() {
@@ -9078,8 +9008,16 @@ var app = (function () {
     		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
+    	get dataLog() {
+    		throw new Error("<RNNModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set dataLog(value) {
+    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
     	get train() {
-    		return this.$$.ctx[13];
+    		return this.$$.ctx[10];
     	}
 
     	set train(value) {
@@ -9087,27 +9025,578 @@ var app = (function () {
     	}
 
     	get predict() {
-    		return this.$$.ctx[14];
+    		return this.$$.ctx[11];
     	}
 
     	set predict(value) {
     		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
+    }
 
-    	get predict2() {
-    		return this.$$.ctx[15];
+    /* src\components\LSTMModel.svelte generated by Svelte v3.38.2 */
+
+    function create_fragment$1(ctx) {
+    	const block = {
+    		c: noop,
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("LSTMModel", slots, []);
+    	const dispatch = createEventDispatcher();
+
+    	// Events
+    	let predicting = false;
+
+    	let training = false;
+    	let error;
+
+    	// Props
+    	// Data
+    	let trainingData;
+
+    	// Model
+    	let modelName = "RNNModel";
+
+    	let model;
+    	let { inputSize = 3 } = $$props;
+    	let { batchSize = 32 } = $$props; // Neuronen min 32 max 512
+    	let { epochs = 10 } = $$props; // Trainings Epochen 50 iterations
+    	let { activationFunction = "softmax" } = $$props;
+    	let { optimizerName = "adam" } = $$props; // Optimizer
+    	let { learningRate = 0.011 } = $$props; // Lernrate
+    	let { neuronCount = 512 } = $$props;
+    	let { dataLog } = $$props;
+
+    	const activationList = [
+    		"none",
+    		"elu",
+    		"hardSigmoid",
+    		"linear",
+    		"relu",
+    		"relu6",
+    		"selu",
+    		"sigmoid",
+    		"softmax",
+    		"softplus",
+    		"softsign",
+    		"tanh",
+    		"swish",
+    		"mish"
+    	];
+
+    	const optimizerList = ["sgd", "momentum", "adagrad", "adadelta", "adam", "adamax", "rmsprop"];
+
+    	// lifecycle functions
+    	onMount(async () => {
+    		
+    	}); // try {
+    	//     model = await loadModel(modelName);
+    	// } catch (error) {
+    	//     console.warn(error);
+
+    	// }
+    	// if (!model) model = init();
+    	// model = init();
+    	// functions
+    	let init = () => {
+    		model = create();
+    	}; // await compile();
+    	// await fit();
+    	// return model;
+
+    	let create = () => {
+    		const model = tf.sequential();
+
+    		// let vocabulary_size = 512;
+    		let vocabulary_size = 21409;
+
+    		model.add(tf.layers.embedding({
+    			inputDim: vocabulary_size,
+    			outputDim: inputSize,
+    			inputLength: inputSize
+    		}));
+
+    		model.add(tf.layers.lstm({
+    			units: neuronCount,
+    			returnSequences: true
+    		}));
+
+    		model.add(tf.layers.lstm({
+    			units: neuronCount,
+    			returnSequences: false
+    		}));
+
+    		model.add(tf.layers.dense({
+    			units: vocabulary_size,
+    			activation: "relu"
+    		}));
+
+    		model.add(tf.layers.dense({
+    			units: vocabulary_size,
+    			activation: "softmax"
+    		}));
+
+    		model.add(tf.layers.dense({ units: neuronCount }));
+    		return model;
+    	};
+
+    	let compile = () => {
+    		const optimizer = getOptimizer(optimizerName, learningRate);
+    		debugger;
+
+    		// Prepare the model for training.
+    		return model.compile({
+    			optimizer,
+    			loss: "categoricalCrossentropy", //tf.losses.meanSquaredError,
+    			metrics: ["mse"]
+    		});
+    	};
+
+    	let fit = (inputs, labels) => {
+    		debugger;
+
+    		return model.fit(inputs, labels, {
+    			batchSize,
+    			epochs,
+    			shuffle: true,
+    			callbacks: [dataLog]
+    		});
+    	};
+
+    	let save = async (model, name) => {
+    		return await model.save(`localstorage://${name}`);
+    	};
+
+    	let load = async name => {
+    		return await tf.loadLayersModel(`localstorage://${name}`);
+    	};
+
+    	let prepareData = data => {
+    		//         from keras.preprocessing.text import Tokenizer
+    		// import nltk
+    		// from nltk.tokenize import word_tokenize
+    		// import numpy as np
+    		// import re
+    		// from keras.utils import to_categorical
+    		// from doc3 import training_doc3
+    		// cleaned = re.sub(r'\W+', ' ', training_doc3).lower()
+    		// tokens = word_tokenize(cleaned)
+    		// train_len = 4
+    		// text_sequences = []
+    		// for i in range(train_len,len(tokens)):
+    		//   seq = tokens[i-train_len:i]
+    		//   text_sequences.append(seq)
+    		// sequences = {}
+    		// count = 1
+    		// for i in range(len(tokens)):
+    		//   if tokens[i] not in sequences:
+    		//     sequences[tokens[i]] = count
+    		//     count += 1
+    		// tokenizer = Tokenizer()
+    		// tokenizer.fit_on_texts(text_sequences)
+    		// sequences = tokenizer.texts_to_sequences(text_sequences)
+    		// #vocabulary size increased by 1 for the cause of padding
+    		// vocabulary_size = len(tokenizer.word_counts)+1
+    		// n_sequences = np.empty([len(sequences),train_len], dtype='int32')
+    		// for i in range(len(sequences)):
+    		//   n_sequences[i] = sequences[i]
+    		// train_inputs = n_sequences[:,:-1]
+    		// train_targets = n_sequences[:,-1]
+    		// train_targets = to_categorical(train_targets, num_classes=vocabulary_size)
+    		// seq_len = train_inputs.shape[1]
+    		return tf.tidy(() => {
+    			// data to lower case
+    			const lowerCaseData = data.toLowerCase();
+
+    			// data without special chars
+    			const cleanData = lowerCaseData.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    			// get unique words
+    			const uniqueWords = [...new Set(cleanData.split(" "))];
+
+    			// get vocabulary size
+    			const vocabularySize = uniqueWords.length;
+
+    			// clean data array
+    			const cleanDataArray = cleanData.split(" ");
+
+    			// clean data array
+    			let tokenizedDataArray = [];
+
+    			cleanDataArray.map((v, i, a) => {
+    				tokenizedDataArray.push(uniqueWords.indexOf(v));
+    			});
+
+    			let trainingData = [];
+
+    			tokenizedDataArray.map((v, i, a) => {
+    				let help = [];
+
+    				for (let j = 0; j <= inputSize; j++) {
+    					help.push(a[i + j]);
+    				}
+
+    				trainingData.push(help);
+    			});
+
+    			let inputs = [];
+    			let labels = [];
+
+    			trainingData.map(e => {
+    				inputs.push(e.slice(0, e.length - 1));
+    				labels.push(e.slice(e.length - 1, e.length));
+    			});
+
+    			// cleanDataArray.map((v, i, a) => {
+    			//     let helpInputs = [];
+    			//     let helpLabels = [];
+    			//     for (let j = 0; j <= inputSize; j++) {
+    			//         if (j != inputSize) {
+    			//             helpInputs.push(a[i + j]);
+    			//         } else {
+    			//             helpLabels.push(a[i + j]);
+    			//         }
+    			//     }
+    			//     inputs.push(helpInputs);
+    			//     labels.push(helpLabels);
+    			// });
+    			// inputs = inputs.slice(0, 100);
+    			// labels = labels.slice(0, 100);
+    			// const inputTensor = tf.tensor3d(null, inputs, [inputs.length, inputSize]);
+    			// const labelTensor = tf.tensor3d(null, labels, [labels.length, 1]);
+    			const inputTensor = tf.tensor2d(inputs, [inputs.length, inputSize]);
+
+    			const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
+
+    			return {
+    				inputs: inputTensor,
+    				labels: labelTensor,
+    				lowerCaseData,
+    				cleanData,
+    				uniqueWords,
+    				vocabularySize,
+    				originalData: data
+    			};
+    		});
+    	};
+
+    	let getOptimizer = (name, learningRate) => {
+    		let optimizer;
+
+    		switch (name) {
+    			case "sgd":
+    				optimizer = tf.train.sgd(learningRate);
+    				break;
+    			case "momentum":
+    				optimizer = tf.train.momentum(learningRate);
+    				break;
+    			case "adagrad":
+    				optimizer = tf.train.adagrad(learningRate);
+    				break;
+    			case "adadelta":
+    				optimizer = tf.train.adadelta(learningRate);
+    				break;
+    			case "adam":
+    				optimizer = tf.train.adam(learningRate);
+    				break;
+    			case "adamax":
+    				optimizer = tf.train.adamax(learningRate);
+    				break;
+    			case "rmsprop":
+    				optimizer = tf.train.rmsprop(learningRate);
+    				break;
+    			default:
+    				optimizer = tf.train.adam(learningRate);
+    				break;
+    		}
+
+    		return optimizer;
+    	};
+
+    	async function train(data) {
+    		dispatch("training", true);
+
+    		// Convert the data to a form we can use for training.
+    		const tensorData = prepareData(data);
+
+    		const { inputs, labels } = tensorData;
+    		debugger;
+
+    		// create model with new parms
+    		model = await create();
+
+    		// Train the model
+    		await compile();
+
+    		await fit(inputs, labels);
+
+    		// saveModel(model, modelName);
+    		dispatch("training", false);
     	}
 
-    	set predict2(value) {
-    		throw new Error("<RNNModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	async function predict(inputData, trainingData) {
+    		dispatch("predicting", true);
+    		const normalizationData = prepareData(trainingData);
+    		const { inputMax, inputMin, labelMin, labelMax } = normalizationData;
+    		const inputs = inputData.map(d => d.x);
+    		const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
+    		const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
+
+    		const [x, y] = tf.tidy(() => {
+    			const ys = model.predict(normalizedInputs);
+    			const unNormXs = normalizedInputs.mul(inputMax.sub(inputMin)).add(inputMin);
+    			const unNormPreds = ys.mul(labelMax.sub(labelMin)).add(labelMin);
+
+    			// Un-normalize the data
+    			return [unNormXs.dataSync(), unNormPreds.dataSync()];
+    		});
+
+    		const predictedPoints = await Array.from(x).map((val, i) => {
+    			return { x: val, y: y[i] };
+    		});
+
+    		dispatch("predicting", false);
+    		return predictedPoints;
+    	}
+
+    	const writable_props = [
+    		"inputSize",
+    		"batchSize",
+    		"epochs",
+    		"activationFunction",
+    		"optimizerName",
+    		"learningRate",
+    		"neuronCount",
+    		"dataLog"
+    	];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<LSTMModel> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("inputSize" in $$props) $$invalidate(0, inputSize = $$props.inputSize);
+    		if ("batchSize" in $$props) $$invalidate(1, batchSize = $$props.batchSize);
+    		if ("epochs" in $$props) $$invalidate(2, epochs = $$props.epochs);
+    		if ("activationFunction" in $$props) $$invalidate(3, activationFunction = $$props.activationFunction);
+    		if ("optimizerName" in $$props) $$invalidate(4, optimizerName = $$props.optimizerName);
+    		if ("learningRate" in $$props) $$invalidate(5, learningRate = $$props.learningRate);
+    		if ("neuronCount" in $$props) $$invalidate(6, neuronCount = $$props.neuronCount);
+    		if ("dataLog" in $$props) $$invalidate(7, dataLog = $$props.dataLog);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		createEventDispatcher,
+    		dispatch,
+    		predicting,
+    		training,
+    		error,
+    		trainingData,
+    		modelName,
+    		model,
+    		inputSize,
+    		batchSize,
+    		epochs,
+    		activationFunction,
+    		optimizerName,
+    		learningRate,
+    		neuronCount,
+    		dataLog,
+    		activationList,
+    		optimizerList,
+    		init,
+    		create,
+    		compile,
+    		fit,
+    		save,
+    		load,
+    		prepareData,
+    		getOptimizer,
+    		train,
+    		predict
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("predicting" in $$props) predicting = $$props.predicting;
+    		if ("training" in $$props) training = $$props.training;
+    		if ("error" in $$props) error = $$props.error;
+    		if ("trainingData" in $$props) trainingData = $$props.trainingData;
+    		if ("modelName" in $$props) modelName = $$props.modelName;
+    		if ("model" in $$props) model = $$props.model;
+    		if ("inputSize" in $$props) $$invalidate(0, inputSize = $$props.inputSize);
+    		if ("batchSize" in $$props) $$invalidate(1, batchSize = $$props.batchSize);
+    		if ("epochs" in $$props) $$invalidate(2, epochs = $$props.epochs);
+    		if ("activationFunction" in $$props) $$invalidate(3, activationFunction = $$props.activationFunction);
+    		if ("optimizerName" in $$props) $$invalidate(4, optimizerName = $$props.optimizerName);
+    		if ("learningRate" in $$props) $$invalidate(5, learningRate = $$props.learningRate);
+    		if ("neuronCount" in $$props) $$invalidate(6, neuronCount = $$props.neuronCount);
+    		if ("dataLog" in $$props) $$invalidate(7, dataLog = $$props.dataLog);
+    		if ("init" in $$props) init = $$props.init;
+    		if ("create" in $$props) create = $$props.create;
+    		if ("compile" in $$props) compile = $$props.compile;
+    		if ("fit" in $$props) fit = $$props.fit;
+    		if ("save" in $$props) save = $$props.save;
+    		if ("load" in $$props) load = $$props.load;
+    		if ("prepareData" in $$props) prepareData = $$props.prepareData;
+    		if ("getOptimizer" in $$props) getOptimizer = $$props.getOptimizer;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		inputSize,
+    		batchSize,
+    		epochs,
+    		activationFunction,
+    		optimizerName,
+    		learningRate,
+    		neuronCount,
+    		dataLog,
+    		train,
+    		predict
+    	];
+    }
+
+    class LSTMModel extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+    			inputSize: 0,
+    			batchSize: 1,
+    			epochs: 2,
+    			activationFunction: 3,
+    			optimizerName: 4,
+    			learningRate: 5,
+    			neuronCount: 6,
+    			dataLog: 7,
+    			train: 8,
+    			predict: 9
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LSTMModel",
+    			options,
+    			id: create_fragment$1.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*dataLog*/ ctx[7] === undefined && !("dataLog" in props)) {
+    			console.warn("<LSTMModel> was created without expected prop 'dataLog'");
+    		}
+    	}
+
+    	get inputSize() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set inputSize(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get batchSize() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set batchSize(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get epochs() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set epochs(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get activationFunction() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set activationFunction(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get optimizerName() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set optimizerName(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get learningRate() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set learningRate(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get neuronCount() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set neuronCount(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get dataLog() {
+    		throw new Error("<LSTMModel>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set dataLog(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get train() {
+    		return this.$$.ctx[8];
+    	}
+
+    	set train(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get predict() {
+    		return this.$$.ctx[9];
+    	}
+
+    	set predict(value) {
+    		throw new Error("<LSTMModel>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
     /* src\App.svelte generated by Svelte v3.38.2 */
-
     const file = "src\\App.svelte";
 
-    // (129:2) {:else}
+    // (116:2) {:else}
     function create_else_block(ctx) {
     	let div;
     	let h5;
@@ -9119,7 +9608,7 @@ var app = (function () {
     	let current;
 
     	function textfield_value_binding(value) {
-    		/*textfield_value_binding*/ ctx[27](value);
+    		/*textfield_value_binding*/ ctx[17](value);
     	}
 
     	let textfield_props = {
@@ -9133,7 +9622,7 @@ var app = (function () {
 
     	textfield = new TextField({ props: textfield_props, $$inline: true });
     	binding_callbacks.push(() => bind(textfield, "value", textfield_value_binding));
-    	textfield.$on("input", /*predictInput*/ ctx[13]);
+    	textfield.$on("input", /*predictInput*/ ctx[12]);
     	let if_block0 = /*predicting*/ ctx[2] && create_if_block_2(ctx);
     	let if_block1 = !/*predicting*/ ctx[2] && /*predictedItems*/ ctx[4].length > 0 && create_if_block_1(ctx);
 
@@ -9149,9 +9638,9 @@ var app = (function () {
     			t3 = space();
     			if (if_block1) if_block1.c();
     			attr_dev(h5, "class", "pt-6 pb-4 svelte-1k8gf66");
-    			add_location(h5, file, 130, 4, 2882);
+    			add_location(h5, file, 117, 4, 2618);
     			attr_dev(div, "class", "svelte-1k8gf66");
-    			add_location(div, file, 129, 3, 2871);
+    			add_location(div, file, 116, 3, 2607);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9244,14 +9733,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(129:2) {:else}",
+    		source: "(116:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:2) {#if modelIsWorking}
+    // (113:2) {#if modelIsWorking}
     function create_if_block(ctx) {
     	let progresscircular;
     	let t0;
@@ -9266,7 +9755,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = `${/*textWaitForModel*/ ctx[10]}`;
     			attr_dev(p, "class", "svelte-1k8gf66");
-    			add_location(p, file, 127, 3, 2830);
+    			add_location(p, file, 114, 3, 2566);
     		},
     		m: function mount(target, anchor) {
     			mount_component(progresscircular, target, anchor);
@@ -9295,14 +9784,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(126:2) {#if modelIsWorking}",
+    		source: "(113:2) {#if modelIsWorking}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (138:4) {#if predicting}
+    // (125:4) {#if predicting}
     function create_if_block_2(ctx) {
     	let progresscircular;
     	let current;
@@ -9334,14 +9823,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(138:4) {#if predicting}",
+    		source: "(125:4) {#if predicting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (141:4) {#if !predicting && predictedItems.length > 0}
+    // (128:4) {#if !predicting && predictedItems.length > 0}
     function create_if_block_1(ctx) {
     	let h7;
     	let t1;
@@ -9353,7 +9842,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	list.$on("change", /*selectItem*/ ctx[14]);
+    	list.$on("change", /*selectItem*/ ctx[13]);
 
     	const block = {
     		c: function create() {
@@ -9362,7 +9851,7 @@ var app = (function () {
     			t1 = space();
     			create_component(list.$$.fragment);
     			attr_dev(h7, "class", "svelte-1k8gf66");
-    			add_location(h7, file, 141, 5, 3184);
+    			add_location(h7, file, 128, 5, 2920);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h7, anchor);
@@ -9395,7 +9884,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(141:4) {#if !predicting && predictedItems.length > 0}",
+    		source: "(128:4) {#if !predicting && predictedItems.length > 0}",
     		ctx
     	});
 
@@ -9409,7 +9898,7 @@ var app = (function () {
     	let h3;
     	let t4;
     	let main;
-    	let rnnmodel;
+    	let lstmmodel;
     	let t5;
     	let div1;
     	let current_block_type_index;
@@ -9431,25 +9920,15 @@ var app = (function () {
     	let t13;
     	let a2;
     	let p2;
+    	let t15;
+    	let a3;
+    	let p3;
     	let current;
-
-    	let rnnmodel_props = {
-    		modelName: /*modelName*/ ctx[11],
-    		batchSize: /*batchSize*/ ctx[15],
-    		epochs: /*epochs*/ ctx[16],
-    		minWeight: /*minWeight*/ ctx[23],
-    		maxWeight: /*maxWeight*/ ctx[22],
-    		hiddenLayerCount: /*hiddenLayerCount*/ ctx[17],
-    		activationFunction: /*activationFunction*/ ctx[18],
-    		selectedOptimizer: /*selectedOptimizer*/ ctx[19],
-    		learningRate: /*learningRate*/ ctx[20],
-    		neuronCount: /*neuronCount*/ ctx[21]
-    	};
-
-    	rnnmodel = new RNNModel({ props: rnnmodel_props, $$inline: true });
-    	/*rnnmodel_binding*/ ctx[24](rnnmodel);
-    	rnnmodel.$on("predicting", /*predicting_handler*/ ctx[25]);
-    	rnnmodel.$on("training", /*training_handler*/ ctx[26]);
+    	let lstmmodel_props = {};
+    	lstmmodel = new LSTMModel({ props: lstmmodel_props, $$inline: true });
+    	/*lstmmodel_binding*/ ctx[14](lstmmodel);
+    	lstmmodel.$on("predicting", /*predicting_handler*/ ctx[15]);
+    	lstmmodel.$on("training", /*training_handler*/ ctx[16]);
     	const if_block_creators = [create_if_block, create_else_block];
     	const if_blocks = [];
 
@@ -9471,7 +9950,7 @@ var app = (function () {
     			h3.textContent = `${/*taskTitle*/ ctx[5]}`;
     			t4 = space();
     			main = element("main");
-    			create_component(rnnmodel.$$.fragment);
+    			create_component(lstmmodel.$$.fragment);
     			t5 = space();
     			div1 = element("div");
     			if_block.c();
@@ -9495,42 +9974,51 @@ var app = (function () {
     			a2 = element("a");
     			p2 = element("p");
     			p2.textContent = "Smeltejs";
+    			t15 = space();
+    			a3 = element("a");
+    			p3 = element("p");
+    			p3.textContent = "Pleanarprotokoll Deutscher Bundestag";
     			attr_dev(h50, "class", "svelte-1k8gf66");
-    			add_location(h50, file, 103, 1, 2352);
+    			add_location(h50, file, 95, 1, 2110);
     			attr_dev(h3, "class", "svelte-1k8gf66");
-    			add_location(h3, file, 104, 1, 2392);
+    			add_location(h3, file, 96, 1, 2150);
     			attr_dev(header, "class", "svelte-1k8gf66");
-    			add_location(header, file, 102, 0, 2341);
-    			if (zero_md.src !== (zero_md_src_value = /*mdUrl*/ ctx[12])) set_custom_element_data(zero_md, "src", zero_md_src_value);
+    			add_location(header, file, 94, 0, 2099);
+    			if (zero_md.src !== (zero_md_src_value = /*mdUrl*/ ctx[11])) set_custom_element_data(zero_md, "src", zero_md_src_value);
     			set_custom_element_data(zero_md, "class", "svelte-1k8gf66");
-    			add_location(zero_md, file, 147, 3, 3325);
+    			add_location(zero_md, file, 134, 3, 3061);
     			attr_dev(div0, "class", "svelte-1k8gf66");
-    			add_location(div0, file, 146, 2, 3315);
+    			add_location(div0, file, 133, 2, 3051);
     			attr_dev(div1, "class", "grid svelte-1k8gf66");
-    			add_location(div1, file, 124, 1, 2758);
+    			add_location(div1, file, 111, 1, 2494);
     			attr_dev(main, "class", "svelte-1k8gf66");
-    			add_location(main, file, 107, 0, 2427);
+    			add_location(main, file, 99, 0, 2185);
     			attr_dev(h51, "class", "svelte-1k8gf66");
-    			add_location(h51, file, 154, 2, 3400);
+    			add_location(h51, file, 141, 2, 3136);
     			attr_dev(p0, "class", "svelte-1k8gf66");
-    			add_location(p0, file, 156, 3, 3476);
+    			add_location(p0, file, 143, 3, 3212);
     			attr_dev(a0, "href", "https://github.com/tonyflow90/dl_ea03");
     			attr_dev(a0, "class", "svelte-1k8gf66");
-    			add_location(a0, file, 155, 2, 3423);
+    			add_location(a0, file, 142, 2, 3159);
     			attr_dev(p1, "class", "svelte-1k8gf66");
-    			add_location(p1, file, 159, 3, 3547);
+    			add_location(p1, file, 146, 3, 3283);
     			attr_dev(a1, "href", "https://svelte.dev/");
     			attr_dev(a1, "class", "svelte-1k8gf66");
-    			add_location(a1, file, 158, 2, 3512);
+    			add_location(a1, file, 145, 2, 3248);
     			attr_dev(p2, "class", "svelte-1k8gf66");
-    			add_location(p2, file, 162, 3, 3609);
+    			add_location(p2, file, 149, 3, 3345);
     			attr_dev(a2, "href", "https://smeltejs.com/");
     			attr_dev(a2, "class", "svelte-1k8gf66");
-    			add_location(a2, file, 161, 2, 3572);
+    			add_location(a2, file, 148, 2, 3308);
+    			attr_dev(p3, "class", "svelte-1k8gf66");
+    			add_location(p3, file, 152, 3, 3430);
+    			attr_dev(a3, "href", "https://www.bundestag.de/services/opendata");
+    			attr_dev(a3, "class", "svelte-1k8gf66");
+    			add_location(a3, file, 151, 2, 3372);
     			attr_dev(div2, "class", "svelte-1k8gf66");
-    			add_location(div2, file, 153, 1, 3391);
+    			add_location(div2, file, 140, 1, 3127);
     			attr_dev(footer, "class", "svelte-1k8gf66");
-    			add_location(footer, file, 152, 0, 3380);
+    			add_location(footer, file, 139, 0, 3116);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9542,7 +10030,7 @@ var app = (function () {
     			append_dev(header, h3);
     			insert_dev(target, t4, anchor);
     			insert_dev(target, main, anchor);
-    			mount_component(rnnmodel, main, null);
+    			mount_component(lstmmodel, main, null);
     			append_dev(main, t5);
     			append_dev(main, div1);
     			if_blocks[current_block_type_index].m(div1, null);
@@ -9562,11 +10050,14 @@ var app = (function () {
     			append_dev(div2, t13);
     			append_dev(div2, a2);
     			append_dev(a2, p2);
+    			append_dev(div2, t15);
+    			append_dev(div2, a3);
+    			append_dev(a3, p3);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			const rnnmodel_changes = {};
-    			rnnmodel.$set(rnnmodel_changes);
+    			const lstmmodel_changes = {};
+    			lstmmodel.$set(lstmmodel_changes);
     			let previous_block_index = current_block_type_index;
     			current_block_type_index = select_block_type(ctx);
 
@@ -9595,12 +10086,12 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(rnnmodel.$$.fragment, local);
+    			transition_in(lstmmodel.$$.fragment, local);
     			transition_in(if_block);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(rnnmodel.$$.fragment, local);
+    			transition_out(lstmmodel.$$.fragment, local);
     			transition_out(if_block);
     			current = false;
     		},
@@ -9608,8 +10099,8 @@ var app = (function () {
     			if (detaching) detach_dev(header);
     			if (detaching) detach_dev(t4);
     			if (detaching) detach_dev(main);
-    			/*rnnmodel_binding*/ ctx[24](null);
-    			destroy_component(rnnmodel);
+    			/*lstmmodel_binding*/ ctx[14](null);
+    			destroy_component(lstmmodel);
     			if_blocks[current_block_type_index].d();
     			if (detaching) detach_dev(t7);
     			if (detaching) detach_dev(footer);
@@ -9629,7 +10120,7 @@ var app = (function () {
 
     async function loadTrainingData(url) {
     	const dataResponse = await fetch(url);
-    	const data = await dataResponse.json();
+    	const data = await dataResponse.text();
     	return data;
     }
 
@@ -9646,7 +10137,7 @@ var app = (function () {
     	// Props
     	let model;
 
-    	let modelName = "FFNN Model";
+    	let modelName = "LSTM Model";
     	let modelIsWorking = false;
     	let predicting = false;
     	let input = "";
@@ -9654,14 +10145,15 @@ var app = (function () {
     	let predictedItems = [];
 
     	// Data
-    	let trainingData;
+    	let trainingData, preparedData;
 
     	// Documentation
     	let mdUrl = "./files/documentation.md";
 
     	// lifecycle functions
     	onMount(async () => {
-    		trainingData = await loadTrainingData("./data/test.json");
+    		trainingData = await loadTrainingData("./data/plenarprotokoll_230_20.05.2021.txt");
+    		model.train(trainingData);
     	});
 
     	let predict = async input => {
@@ -9695,24 +10187,13 @@ var app = (function () {
     		$$invalidate(4, predictedItems = []);
     	};
 
-    	// initial Config
-    	let batchSize = 100; // Neuronen min 32 max 512
-
-    	let epochs = 200; // Trainings Epochen 50 iterations
-    	let hiddenLayerCount = 5; // Anzahl der hidden Layer
-    	let activationFunction = "relu";
-    	let selectedOptimizer = "adam"; // Optimizer
-    	let learningRate = 0.01; // Lernrate
-    	let neuronCount = 100;
-    	let maxWeight = 0;
-    	let minWeight = 0;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	function rnnmodel_binding($$value) {
+    	function lstmmodel_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			model = $$value;
     			$$invalidate(0, model);
@@ -9736,6 +10217,7 @@ var app = (function () {
     		List,
     		onMount,
     		RNNModel,
+    		LSTMModel,
     		taskTitle,
     		taskNumber,
     		labelPredictionInputTitle,
@@ -9750,20 +10232,12 @@ var app = (function () {
     		inputPrediction,
     		predictedItems,
     		trainingData,
+    		preparedData,
     		mdUrl,
     		loadTrainingData,
     		predict,
     		predictInput,
-    		selectItem,
-    		batchSize,
-    		epochs,
-    		hiddenLayerCount,
-    		activationFunction,
-    		selectedOptimizer,
-    		learningRate,
-    		neuronCount,
-    		maxWeight,
-    		minWeight
+    		selectItem
     	});
 
     	$$self.$inject_state = $$props => {
@@ -9774,26 +10248,18 @@ var app = (function () {
     		if ("labelPredictedItemsTitle" in $$props) $$invalidate(9, labelPredictedItemsTitle = $$props.labelPredictedItemsTitle);
     		if ("textWaitForModel" in $$props) $$invalidate(10, textWaitForModel = $$props.textWaitForModel);
     		if ("model" in $$props) $$invalidate(0, model = $$props.model);
-    		if ("modelName" in $$props) $$invalidate(11, modelName = $$props.modelName);
+    		if ("modelName" in $$props) modelName = $$props.modelName;
     		if ("modelIsWorking" in $$props) $$invalidate(1, modelIsWorking = $$props.modelIsWorking);
     		if ("predicting" in $$props) $$invalidate(2, predicting = $$props.predicting);
     		if ("input" in $$props) $$invalidate(3, input = $$props.input);
     		if ("inputPrediction" in $$props) inputPrediction = $$props.inputPrediction;
     		if ("predictedItems" in $$props) $$invalidate(4, predictedItems = $$props.predictedItems);
     		if ("trainingData" in $$props) trainingData = $$props.trainingData;
-    		if ("mdUrl" in $$props) $$invalidate(12, mdUrl = $$props.mdUrl);
+    		if ("preparedData" in $$props) preparedData = $$props.preparedData;
+    		if ("mdUrl" in $$props) $$invalidate(11, mdUrl = $$props.mdUrl);
     		if ("predict" in $$props) predict = $$props.predict;
-    		if ("predictInput" in $$props) $$invalidate(13, predictInput = $$props.predictInput);
-    		if ("selectItem" in $$props) $$invalidate(14, selectItem = $$props.selectItem);
-    		if ("batchSize" in $$props) $$invalidate(15, batchSize = $$props.batchSize);
-    		if ("epochs" in $$props) $$invalidate(16, epochs = $$props.epochs);
-    		if ("hiddenLayerCount" in $$props) $$invalidate(17, hiddenLayerCount = $$props.hiddenLayerCount);
-    		if ("activationFunction" in $$props) $$invalidate(18, activationFunction = $$props.activationFunction);
-    		if ("selectedOptimizer" in $$props) $$invalidate(19, selectedOptimizer = $$props.selectedOptimizer);
-    		if ("learningRate" in $$props) $$invalidate(20, learningRate = $$props.learningRate);
-    		if ("neuronCount" in $$props) $$invalidate(21, neuronCount = $$props.neuronCount);
-    		if ("maxWeight" in $$props) $$invalidate(22, maxWeight = $$props.maxWeight);
-    		if ("minWeight" in $$props) $$invalidate(23, minWeight = $$props.minWeight);
+    		if ("predictInput" in $$props) $$invalidate(12, predictInput = $$props.predictInput);
+    		if ("selectItem" in $$props) $$invalidate(13, selectItem = $$props.selectItem);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -9812,20 +10278,10 @@ var app = (function () {
     		labelPredictionInput,
     		labelPredictedItemsTitle,
     		textWaitForModel,
-    		modelName,
     		mdUrl,
     		predictInput,
     		selectItem,
-    		batchSize,
-    		epochs,
-    		hiddenLayerCount,
-    		activationFunction,
-    		selectedOptimizer,
-    		learningRate,
-    		neuronCount,
-    		maxWeight,
-    		minWeight,
-    		rnnmodel_binding,
+    		lstmmodel_binding,
     		predicting_handler,
     		training_handler,
     		textfield_value_binding

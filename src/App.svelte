@@ -15,6 +15,7 @@
 	// import List from "smelte/src/components/List/List.svelte";
 
 	import RNNModel from "./components/RNNModel.svelte";
+	import LSTMModel from "./components/LSTMModel.svelte";
 
 	// Texts & Labels
 	let taskTitle = "Language Model mit RNN";
@@ -28,7 +29,7 @@
 
 	// Props
 	let model;
-	let modelName = "FFNN Model";
+	let modelName = "LSTM Model";
 	let modelIsWorking = false;
 	let predicting = false;
 
@@ -37,7 +38,7 @@
 	let predictedItems = [];
 
 	// Data
-	let trainingData;
+	let trainingData, preparedData;
 
 	// Documentation
 	let mdUrl = "./files/documentation.md";
@@ -45,14 +46,16 @@
 	// lifecycle functions
 	onMount(async () => {
 		trainingData = await loadTrainingData(
-			"./data/test.json"
+			"./data/plenarprotokoll_230_20.05.2021.txt"
 		);
+
+		model.train(trainingData);
 	});
 
 	// functions
 	async function loadTrainingData(url) {
 		const dataResponse = await fetch(url);
-		const data = await dataResponse.json();
+		const data = await dataResponse.text();
 		return data;
 	}
 
@@ -87,19 +90,6 @@
 		}
 		predictedItems = [];
 	};
-
-	// initial Config
-	let batchSize = 100; // Neuronen min 32 max 512
-	let epochs = 200; // Trainings Epochen 50 iterations
-	let hiddenLayerCount = 5; // Anzahl der hidden Layer
-	let activationFunction = "relu";
-	let selectedOptimizer = "adam"; // Optimizer
-	let learningRate = 0.01; // Lernrate
-	let neuronCount = 100;
-	let maxWeight = 0;
-	let minWeight = 0;
-
-	
 </script>
 
 <header>
@@ -108,22 +98,17 @@
 </header>
 
 <main>
-	<RNNModel
-		{modelName}
-		{batchSize}
-		{epochs}
-		{minWeight}
-		{maxWeight}
-		{hiddenLayerCount}
-		{activationFunction}
-		{selectedOptimizer}
-		{learningRate}
-		{neuronCount}
+	<!-- <RNNModel
+		bind:this={model}
+		on:predicting={(e) => (modelIsWorking = e.detail)}
+		on:training={(e) => (modelIsWorking = e.detail)}
+	/> -->
+
+	<LSTMModel
 		bind:this={model}
 		on:predicting={(e) => (modelIsWorking = e.detail)}
 		on:training={(e) => (modelIsWorking = e.detail)}
 	/>
-
 	<div class="grid">
 		{#if modelIsWorking}
 			<ProgressCircular />
@@ -163,6 +148,9 @@
 		</a>
 		<a href="https://smeltejs.com/">
 			<p>Smeltejs</p>
+		</a>
+		<a href="https://www.bundestag.de/services/opendata">
+			<p>Pleanarprotokoll Deutscher Bundestag</p>
 		</a>
 	</div>
 </footer>
