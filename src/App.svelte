@@ -44,7 +44,7 @@
 	let hiddenLayerCount = 5; // Anzahl der hidden Layer
 	let activationFunction = "relu";
 	let selectedOptimizer = "adam"; // Optimizer
-	let learningRate = 0.001; // Lernrate
+	let learningRate = 0.01; // Lernrate
 	let neuronCount = 50;
 	let inputSize = 3;
 
@@ -59,39 +59,46 @@
 		let dataset1 = await loadTrainingData(
 			"./data/plenarprotokoll_230_20.05.2021.txt"
 		);
+		let dataset2 = await loadTrainingData("./data/test_data.txt");
 
 		let dataPreview = dataset1.slice(0, 300) + " ...";
 
 		trainingDataSets = [
 			{
 				value: 0,
-				text: "Complete - Plenarprotokoll 20.05.2021",
+				text: `100% (${parseInt(dataset1.length)} Characters) - Plenarprotokoll 20.05.2021`,
 				data: dataset1,
 				dataPreview: dataPreview,
 			},
 			{
 				value: 1,
-				text: "Short (10.000.000) - Plenarprotokoll 20.05.2021",
-				data: dataset1.slice(0, 10000000),
+				text: `50% (${parseInt(dataset1.length/100*50)} Characters) - Plenarprotokoll 20.05.2021`,
+				data: dataset1.slice(0, parseInt(dataset1.length/100*50)),
 				dataPreview: dataPreview,
 			},
 			{
 				value: 2,
-				text: "Short (1.000.000) - Plenarprotokoll 20.05.2021",
-				data: dataset1.slice(0, 1000000),
+				text: `25% (${parseInt(dataset1.length/100*25)} Characters) - Plenarprotokoll 20.05.2021`,
+				data: dataset1.slice(0, parseInt(dataset1.length/100*25)),
 				dataPreview: dataPreview,
 			},
 			{
 				value: 3,
-				text: "Short (100.000) - Plenarprotokoll 20.05.2021",
-				data: dataset1.slice(0, 100000),
+				text: `10% (${parseInt(dataset1.length/100*10)} Characters) - Plenarprotokoll 20.05.2021`,
+				data: dataset1.slice(0, parseInt(dataset1.length/100*10)),
 				dataPreview: dataPreview,
 			},
 			{
 				value: 4,
-				text: "Super short (10000) - Plenarprotokoll 20.05.2021",
-				data: dataset1.slice(0, 10000),
+				text: `1% (${parseInt(dataset1.length/100*1)} Characters) - Plenarprotokoll 20.05.2021`,
+				data: dataset1.slice(0, parseInt(dataset1.length/100*1)),
 				dataPreview: dataPreview,
+			},
+			{
+				value: 5,
+				text: `Test Data (${parseInt(dataset1.length/100*1)} Characters)`,
+				data: dataset2,
+				dataPreview: dataset2,
 			},
 		];
 	});
@@ -163,7 +170,7 @@
 </header>
 
 <main>
-	<!-- <LSTMModel
+	<LSTMModel
 		{modelName}
 		{batchSize}
 		{inputSize}
@@ -174,12 +181,12 @@
 		bind:this={model}
 		on:predicting={(e) => (modelIsWorking = e.detail)}
 		on:training={(e) => (modelIsWorking = e.detail)}
-	/> -->
-	<LSTMModel
+	/>
+	<!-- <LSTMModel
 		bind:this={model}
 		on:predicting={(e) => (modelIsWorking = e.detail)}
 		on:training={(e) => (modelIsWorking = e.detail)}
-	/>
+	/> -->
 
 	<div class="grid">
 		<div>

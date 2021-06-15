@@ -24,12 +24,12 @@
     export let batchSize = 512; // Neuronen min 32 max 512
     export let epochs = 10; // Trainings Epochen 50 iterations
     export let optimizerName = "adam"; // Optimizer
-    export let learningRate = 0.001; // Lernrate
+    export let learningRate = 0.01; // Lernrate
     export let neuronCount = 50;
     export let dataLog;
 
     // lifecycle functions
-    onMount(async () => {    });
+    onMount(async () => {});
 
     // functions
     let create = (vocabularySize) => {
@@ -59,6 +59,12 @@
             })
         );
 
+        model.add(
+            tf.layers.dropout({
+                rate: 0.5,
+            })
+        );
+        
         // Dense layers
         model.add(tf.layers.dense({ units: neuronCount, activation: "relu" }));
         model.add(
@@ -84,7 +90,7 @@
         return model.fit(inputs, labels, {
             batchSize,
             epochs,
-            validationSplit: 0.3,
+            // validationSplit: 0.3,
             // callbacks: [dataLog],
             // callbacks: {
             //     onTrainBegin: (logs) => console.log("onTrainBegin:", logs),
@@ -101,7 +107,7 @@
                 {
                     height: 200,
                     width: 400,
-                    callbacks: ["onBatchEnd"],
+                    callbacks: ["onBatchEnd", "onEpochEnd"],
                 }
             ),
         });
@@ -234,10 +240,18 @@
     export async function predict(inputData) {
         dispatch("predicting", true);
 
-        inputData = inputData.slice(inputData.length-inputSize, inputData.length);
-        let tokenizedInputArray = inputData.map((v) => trainingData.uniqueWords.indexOf(v.toLowerCase()));
+        inputData = inputData.slice(
+            inputData.length - inputSize,
+            inputData.length
+        );
+        let tokenizedInputArray = inputData.map((v) =>
+            trainingData.uniqueWords.indexOf(v.toLowerCase())
+        );
 
-        const inputs = tf.tensor2d(tokenizedInputArray, [1, tokenizedInputArray.length]);
+        const inputs = tf.tensor2d(tokenizedInputArray, [
+            1,
+            tokenizedInputArray.length,
+        ]);
 
         const [words] = tf.tidy(() => {
             const pwords = model.predict(inputs);
@@ -248,7 +262,9 @@
             return { word: trainingData.uniqueWords[i], acc: val };
         });
 
-        let sortedResults = results.sort((w1, w2) => (w1.acc < w2.acc) ? 1 : -1);
+        let sortedResults = results.sort((w1, w2) =>
+            w1.acc < w2.acc ? 1 : -1
+        );
 
         dispatch("predicting", false);
         return sortedResults;

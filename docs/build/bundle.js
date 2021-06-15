@@ -8033,7 +8033,7 @@ var app = (function () {
     	let { batchSize = 512 } = $$props; // Neuronen min 32 max 512
     	let { epochs = 10 } = $$props; // Trainings Epochen 50 iterations
     	let { optimizerName = "adam" } = $$props; // Optimizer
-    	let { learningRate = 0.001 } = $$props; // Lernrate
+    	let { learningRate = 0.01 } = $$props; // Lernrate
     	let { neuronCount = 50 } = $$props;
     	let { dataLog } = $$props;
 
@@ -8064,6 +8064,8 @@ var app = (function () {
     			returnSequences: false
     		}));
 
+    		model.add(tf.layers.dropout({ rate: 0.5 }));
+
     		// Dense layers
     		model.add(tf.layers.dense({ units: neuronCount, activation: "relu" }));
 
@@ -8090,7 +8092,7 @@ var app = (function () {
     		return model.fit(inputs, labels, {
     			batchSize,
     			epochs,
-    			validationSplit: 0.3,
+    			// validationSplit: 0.3,
     			// callbacks: [dataLog],
     			// callbacks: {
     			//     onTrainBegin: (logs) => console.log("onTrainBegin:", logs),
@@ -8104,7 +8106,7 @@ var app = (function () {
     			callbacks: tfvis.show.fitCallbacks({ name: "Training Performance" }, ["loss", "acc"], {
     				height: 200,
     				width: 400,
-    				callbacks: ["onBatchEnd"]
+    				callbacks: ["onBatchEnd", "onEpochEnd"]
     			})
     		});
     	};
@@ -9104,7 +9106,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src\\App.svelte";
 
-    // (230:3) <Button      block      outlined      on:click={train}      disabled={!trainingData || modelIsWorking}>
+    // (237:3) <Button      block      outlined      on:click={train}      disabled={!trainingData || modelIsWorking}>
     function create_default_slot(ctx) {
     	let t;
 
@@ -9124,14 +9126,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(230:3) <Button      block      outlined      on:click={train}      disabled={!trainingData || modelIsWorking}>",
+    		source: "(237:3) <Button      block      outlined      on:click={train}      disabled={!trainingData || modelIsWorking}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (240:2) {:else}
+    // (247:2) {:else}
     function create_else_block(ctx) {
     	let div;
     	let h5;
@@ -9174,9 +9176,9 @@ var app = (function () {
     			t3 = space();
     			if (if_block1) if_block1.c();
     			attr_dev(h5, "class", "pt-6 pb-4 svelte-1k8gf66");
-    			add_location(h5, file, 241, 4, 5630);
+    			add_location(h5, file, 248, 4, 6120);
     			attr_dev(div, "class", "svelte-1k8gf66");
-    			add_location(div, file, 240, 3, 5619);
+    			add_location(div, file, 247, 3, 6109);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9270,14 +9272,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(240:2) {:else}",
+    		source: "(247:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (237:2) {#if modelIsWorking}
+    // (244:2) {#if modelIsWorking}
     function create_if_block(ctx) {
     	let progresscircular;
     	let current;
@@ -9310,14 +9312,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(237:2) {#if modelIsWorking}",
+    		source: "(244:2) {#if modelIsWorking}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (250:4) {#if predicting}
+    // (257:4) {#if predicting}
     function create_if_block_2(ctx) {
     	let progresscircular;
     	let current;
@@ -9349,14 +9351,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(250:4) {#if predicting}",
+    		source: "(257:4) {#if predicting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (253:4) {#if !predicting && predictedItems.length > 0}
+    // (260:4) {#if !predicting && predictedItems.length > 0}
     function create_if_block_1(ctx) {
     	let h7;
     	let t1;
@@ -9377,7 +9379,7 @@ var app = (function () {
     			t1 = space();
     			create_component(list.$$.fragment);
     			attr_dev(h7, "class", "svelte-1k8gf66");
-    			add_location(h7, file, 253, 5, 5958);
+    			add_location(h7, file, 260, 5, 6448);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h7, anchor);
@@ -9410,7 +9412,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(253:4) {#if !predicting && predictedItems.length > 0}",
+    		source: "(260:4) {#if !predicting && predictedItems.length > 0}",
     		ctx
     	});
 
@@ -9479,7 +9481,17 @@ var app = (function () {
     	let a3;
     	let p3;
     	let current;
-    	let lstmmodel_props = {};
+
+    	let lstmmodel_props = {
+    		modelName: /*modelName*/ ctx[1],
+    		batchSize: /*batchSize*/ ctx[8],
+    		inputSize: /*inputSize*/ ctx[15],
+    		epochs: /*epochs*/ ctx[9],
+    		selectedOptimizer: /*selectedOptimizer*/ ctx[12],
+    		learningRate: /*learningRate*/ ctx[13],
+    		neuronCount: /*neuronCount*/ ctx[14]
+    	};
+
     	lstmmodel = new LSTMModel({ props: lstmmodel_props, $$inline: true });
     	/*lstmmodel_binding*/ ctx[33](lstmmodel);
     	lstmmodel.$on("predicting", /*predicting_handler*/ ctx[34]);
@@ -9705,54 +9717,54 @@ var app = (function () {
     			p3 = element("p");
     			p3.textContent = "Pleanarprotokoll Deutscher Bundestag";
     			attr_dev(h50, "class", "svelte-1k8gf66");
-    			add_location(h50, file, 160, 1, 3870);
+    			add_location(h50, file, 167, 1, 4360);
     			attr_dev(h3, "class", "svelte-1k8gf66");
-    			add_location(h3, file, 161, 1, 3910);
+    			add_location(h3, file, 168, 1, 4400);
     			attr_dev(header, "class", "svelte-1k8gf66");
-    			add_location(header, file, 159, 0, 3859);
+    			add_location(header, file, 166, 0, 4349);
     			attr_dev(h51, "class", "pb-4 svelte-1k8gf66");
-    			add_location(h51, file, 185, 3, 4402);
+    			add_location(h51, file, 192, 3, 4892);
     			attr_dev(div0, "class", "svelte-1k8gf66");
-    			add_location(div0, file, 184, 2, 4392);
+    			add_location(div0, file, 191, 2, 4882);
     			attr_dev(h52, "class", "pb-4 svelte-1k8gf66");
-    			add_location(h52, file, 209, 3, 4907);
+    			add_location(h52, file, 216, 3, 5397);
     			attr_dev(div1, "class", "svelte-1k8gf66");
-    			add_location(div1, file, 208, 2, 4897);
+    			add_location(div1, file, 215, 2, 5387);
     			if (zero_md.src !== (zero_md_src_value = /*mdUrl*/ ctx[29])) set_custom_element_data(zero_md, "src", zero_md_src_value);
     			set_custom_element_data(zero_md, "class", "svelte-1k8gf66");
-    			add_location(zero_md, file, 259, 3, 6099);
+    			add_location(zero_md, file, 266, 3, 6589);
     			attr_dev(div2, "class", "svelte-1k8gf66");
-    			add_location(div2, file, 258, 2, 6089);
+    			add_location(div2, file, 265, 2, 6579);
     			attr_dev(div3, "class", "grid svelte-1k8gf66");
-    			add_location(div3, file, 183, 1, 4370);
+    			add_location(div3, file, 190, 1, 4860);
     			attr_dev(main, "class", "svelte-1k8gf66");
-    			add_location(main, file, 164, 0, 3945);
+    			add_location(main, file, 171, 0, 4435);
     			attr_dev(h53, "class", "svelte-1k8gf66");
-    			add_location(h53, file, 266, 2, 6174);
+    			add_location(h53, file, 273, 2, 6664);
     			attr_dev(p0, "class", "svelte-1k8gf66");
-    			add_location(p0, file, 268, 3, 6250);
+    			add_location(p0, file, 275, 3, 6740);
     			attr_dev(a0, "href", "https://github.com/tonyflow90/dl_ea03");
     			attr_dev(a0, "class", "svelte-1k8gf66");
-    			add_location(a0, file, 267, 2, 6197);
+    			add_location(a0, file, 274, 2, 6687);
     			attr_dev(p1, "class", "svelte-1k8gf66");
-    			add_location(p1, file, 271, 3, 6321);
+    			add_location(p1, file, 278, 3, 6811);
     			attr_dev(a1, "href", "https://svelte.dev/");
     			attr_dev(a1, "class", "svelte-1k8gf66");
-    			add_location(a1, file, 270, 2, 6286);
+    			add_location(a1, file, 277, 2, 6776);
     			attr_dev(p2, "class", "svelte-1k8gf66");
-    			add_location(p2, file, 274, 3, 6383);
+    			add_location(p2, file, 281, 3, 6873);
     			attr_dev(a2, "href", "https://smeltejs.com/");
     			attr_dev(a2, "class", "svelte-1k8gf66");
-    			add_location(a2, file, 273, 2, 6346);
+    			add_location(a2, file, 280, 2, 6836);
     			attr_dev(p3, "class", "svelte-1k8gf66");
-    			add_location(p3, file, 277, 3, 6468);
+    			add_location(p3, file, 284, 3, 6958);
     			attr_dev(a3, "href", "https://www.bundestag.de/services/opendata");
     			attr_dev(a3, "class", "svelte-1k8gf66");
-    			add_location(a3, file, 276, 2, 6410);
+    			add_location(a3, file, 283, 2, 6900);
     			attr_dev(div4, "class", "svelte-1k8gf66");
-    			add_location(div4, file, 265, 1, 6165);
+    			add_location(div4, file, 272, 1, 6655);
     			attr_dev(footer, "class", "svelte-1k8gf66");
-    			add_location(footer, file, 264, 0, 6154);
+    			add_location(footer, file, 271, 0, 6644);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9809,6 +9821,13 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const lstmmodel_changes = {};
+    			if (dirty[0] & /*modelName*/ 2) lstmmodel_changes.modelName = /*modelName*/ ctx[1];
+    			if (dirty[0] & /*batchSize*/ 256) lstmmodel_changes.batchSize = /*batchSize*/ ctx[8];
+    			if (dirty[0] & /*inputSize*/ 32768) lstmmodel_changes.inputSize = /*inputSize*/ ctx[15];
+    			if (dirty[0] & /*epochs*/ 512) lstmmodel_changes.epochs = /*epochs*/ ctx[9];
+    			if (dirty[0] & /*selectedOptimizer*/ 4096) lstmmodel_changes.selectedOptimizer = /*selectedOptimizer*/ ctx[12];
+    			if (dirty[0] & /*learningRate*/ 8192) lstmmodel_changes.learningRate = /*learningRate*/ ctx[13];
+    			if (dirty[0] & /*neuronCount*/ 16384) lstmmodel_changes.neuronCount = /*neuronCount*/ ctx[14];
     			lstmmodel.$set(lstmmodel_changes);
     			const configui_changes = {};
     			if (dirty[0] & /*modelIsWorking*/ 4) configui_changes.disabled = /*modelIsWorking*/ ctx[2];
@@ -10019,7 +10038,7 @@ var app = (function () {
     	let hiddenLayerCount = 5; // Anzahl der hidden Layer
     	let activationFunction = "relu";
     	let selectedOptimizer = "adam"; // Optimizer
-    	let learningRate = 0.001; // Lernrate
+    	let learningRate = 0.01; // Lernrate
     	let neuronCount = 50;
     	let inputSize = 3;
 
@@ -10032,38 +10051,45 @@ var app = (function () {
     	// lifecycle functions
     	onMount(async () => {
     		let dataset1 = await loadTrainingData("./data/plenarprotokoll_230_20.05.2021.txt");
+    		let dataset2 = await loadTrainingData("./data/test_data.txt");
     		let dataPreview = dataset1.slice(0, 300) + " ...";
 
     		$$invalidate(16, trainingDataSets = [
     			{
     				value: 0,
-    				text: "Complete - Plenarprotokoll 20.05.2021",
+    				text: `100% (${parseInt(dataset1.length)} Characters) - Plenarprotokoll 20.05.2021`,
     				data: dataset1,
     				dataPreview
     			},
     			{
     				value: 1,
-    				text: "Short (10.000.000) - Plenarprotokoll 20.05.2021",
-    				data: dataset1.slice(0, 10000000),
+    				text: `50% (${parseInt(dataset1.length / 100 * 50)} Characters) - Plenarprotokoll 20.05.2021`,
+    				data: dataset1.slice(0, parseInt(dataset1.length / 100 * 50)),
     				dataPreview
     			},
     			{
     				value: 2,
-    				text: "Short (1.000.000) - Plenarprotokoll 20.05.2021",
-    				data: dataset1.slice(0, 1000000),
+    				text: `25% (${parseInt(dataset1.length / 100 * 25)} Characters) - Plenarprotokoll 20.05.2021`,
+    				data: dataset1.slice(0, parseInt(dataset1.length / 100 * 25)),
     				dataPreview
     			},
     			{
     				value: 3,
-    				text: "Short (100.000) - Plenarprotokoll 20.05.2021",
-    				data: dataset1.slice(0, 100000),
+    				text: `10% (${parseInt(dataset1.length / 100 * 10)} Characters) - Plenarprotokoll 20.05.2021`,
+    				data: dataset1.slice(0, parseInt(dataset1.length / 100 * 10)),
     				dataPreview
     			},
     			{
     				value: 4,
-    				text: "Super short (10000) - Plenarprotokoll 20.05.2021",
-    				data: dataset1.slice(0, 10000),
+    				text: `1% (${parseInt(dataset1.length / 100 * 1)} Characters) - Plenarprotokoll 20.05.2021`,
+    				data: dataset1.slice(0, parseInt(dataset1.length / 100 * 1)),
     				dataPreview
+    			},
+    			{
+    				value: 5,
+    				text: `Test Data (${parseInt(dataset1.length / 100 * 1)} Characters)`,
+    				data: dataset2,
+    				dataPreview: dataset2
     			}
     		]);
     	});
