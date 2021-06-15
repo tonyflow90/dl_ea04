@@ -25,7 +25,7 @@
     export let epochs = 10; // Trainings Epochen 50 iterations
     export let activationFunction = "softmax";
     export let optimizerName = "adam"; // Optimizer
-    export let learningRate = 0.01; // Lernrate
+    export let learningRate = 0.001; // Lernrate
     export let neuronCount = 50;
     export let dataLog;
 
@@ -76,15 +76,22 @@
         // return model;
     };
 
-    let create = (vocabularySize) => {
+    let createOld = (vocabularySize) => {
         const model = tf.sequential();
         // let vocabulary_size = 512;
         // let vocabulary_size = 21410;
         // let vocabulary_size = 182975;
+        // model.add(
+        //     tf.layers.embedding({
+        //         inputDim: vocabularySize,
+        //         outputDim: inputSize,
+        //         inputLength: inputSize,
+        //     })
+        // );
         model.add(
             tf.layers.embedding({
-                inputDim: vocabularySize,
-                outputDim: inputSize,
+                inputDim: 1000,
+                outputDim: 200,
                 inputLength: inputSize,
             })
         );
@@ -100,10 +107,62 @@
                 returnSequences: false,
             })
         );
-        model.add(tf.layers.dense({ units: neuronCount, activation: "relu" }));
+        // model.add(tf.layers.dense({ units: neuronCount, activation: "relu" }));
         model.add(
             tf.layers.dense({ units: vocabularySize, activation: "softmax" })
         );
+        model.add(tf.layers.dense({ units: 1}));
+        console.log(model.summary());
+
+        return model;
+    };
+
+
+    let create = (vocabularySize) => {
+        const model = tf.sequential();
+        model.add(
+            tf.layers.embedding({
+                inputDim: vocabularySize,
+                outputDim: 1,
+                inputLength: inputSize,
+            })
+        );
+        model.add(
+            tf.layers.lstm({
+                units: 200,
+                useBias: true,
+                returnSequences: true,
+            })
+        );
+
+        model.add(
+            tf.layers.lstm({
+                units: 200,
+                useBias: true,
+                returnSequences: true,
+            })
+        );
+
+        model.add(
+            tf.layers.dropout({
+                rate: .5,
+            })
+        );
+
+        // model.add(
+        //     tf.layers.dense({ units: 10000, activation: "softmax" })
+        // );
+
+model.add(tf.layers.flatten());
+
+        // model.add(tf.layers.timeDistributed({layer:tf.layers.dense({units:3})}));
+
+
+        // model.add(tf.layers.dense({ units: neuronCount, activation: "relu" }));
+        model.add(
+            tf.layers.dense({ units: vocabularySize, activation: "softmax" })
+        );
+        // model.add(tf.layers.dense({ units: 1}));
         console.log(model.summary());
 
         return model;
@@ -114,14 +173,13 @@
 
         return model.compile({
             optimizer: optimizer,
-            loss: "sparseCategoricalCrossentropy",
-            // loss: "categoricalCrossentropy", //tf.losses.meanSquaredError,
+            // loss: "sparseCategoricalCrossentropy",
+            loss: "categoricalCrossentropy", //tf.losses.meanSquaredError,
             metrics: ["accuracy"],
         });
     };
 
     let fit = (inputs, labels) => {
-        debugger;
         return model.fit(inputs, labels, {
             batchSize,
             epochs,
@@ -155,7 +213,7 @@
     };
 
     let load = async (name) => {
-        return await tf.loadLayersModel(`localstorage://${name}`);
+        return await tf.loadLayersModel(`${name}`);
     };
 
     let prepareData = (data) => {
@@ -207,8 +265,25 @@
             // inputs = inputs.slice(0, 30000);
             // labels = labels.slice(0, 30000);
 
-            const inputTensor = tf.tensor2d(inputs, [inputs.length, inputSize]);
-            const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
+            // // tests
+            // let inputTensors = [];
+            // let labelTensors = [];
+
+            // inputs.forEach((i) => {
+            //     inputTensors.push(tf.tensor(i))
+            // });
+
+            // labels.forEach((l) => {
+            //     labelTensors.push(tf.tensor(l))
+            // });
+
+            // const inputTensor = tf.tensor2d(intputTensors, [intputTensors.length, inputSize]);
+            // const labelTensor = tf.tensor2d(labelTensors, [labelTensors.length, 1]);
+
+            // inputs = [[[1],[2],[3]],[[4],[5],[6]],[[7],[8],[9]],[[9],[1],[2]]]
+            // labels = [4,7,1,3]
+            const inputTensor = tf.tensor(inputs, [inputs.length, inputSize],"int32");
+            const labelTensor = tf.tensor(labels, [labels.length, 1],"int32");
 
             return {
                 inputs: inputTensor,
@@ -262,11 +337,11 @@
         const tensorData = prepareData(data);
         const { inputs, labels, vocabularySize } = tensorData;
 
-        debugger;
         // create model with new parms
-        
+
         // model = await create2(inputs.length, vocabularySize, 2);
         model = await create(vocabularySize);
+        // model = await load("./model.json");
 
         // Train the model
         await compile();

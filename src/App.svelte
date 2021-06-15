@@ -4,7 +4,6 @@
 	import {
 		TextField,
 		Select,
-		Snackbar,
 		Button,
 		ProgressCircular,
 		List,
@@ -12,14 +11,15 @@
 
 	// svelte
 	import { onMount } from "svelte";
-	// import List from "smelte/src/components/List/List.svelte";
 
-	import RNNModel from "./components/RNNModel.svelte";
 	import LSTMModel from "./components/LSTMModel.svelte";
 
 	// Texts & Labels
 	let taskTitle = "Language Model mit RNN";
 	let taskNumber = 4;
+
+	let labelDatasetsTitle = "Datasets";
+	let labelDatasetsText = "Preview Text";
 
 	let labelPredictionInputTitle = "Predicting Input";
 	let labelPredictionInput = "Input";
@@ -38,18 +38,30 @@
 	let predictedItems = [];
 
 	// Data
-	let trainingData, preparedData;
+	let trainingDataSets, trainingData, previewText;
 
 	// Documentation
 	let mdUrl = "./files/documentation.md";
 
 	// lifecycle functions
 	onMount(async () => {
-		trainingData = await loadTrainingData(
+		let dataset1 = await loadTrainingData(
 			"./data/plenarprotokoll_230_20.05.2021.txt"
 		);
 
-		model.train(trainingData);
+		trainingDataSets = [
+			{
+				value: 0,
+				text: "Plenarprotokoll 20.05.2021",
+				data: dataset1,
+				dataPreview: dataset1.slice(0, 300) + " ..."
+			}, {
+				value: 0,
+				text: "short version - Plenarprotokoll 20.05.2021",
+				data: dataset1.slice(0, 10000),
+				dataPreview: dataset1.slice(0, 300) + " ..."
+			}
+		];
 	});
 
 	// functions
@@ -58,6 +70,11 @@
 		const data = await dataResponse.text();
 		return data;
 	}
+
+	let train = async () => {
+		if(trainingData)
+			model.train(trainingData);
+	};
 
 	let predict = async (input) => {
 		// return await model.predict(input);
@@ -109,7 +126,30 @@
 		on:predicting={(e) => (modelIsWorking = e.detail)}
 		on:training={(e) => (modelIsWorking = e.detail)}
 	/>
+
 	<div class="grid">
+		<div>
+			<h5 class="pb-4">{labelDatasetsTitle}</h5>
+			<Select
+				label={labelDatasetsTitle}
+				items={trainingDataSets}
+				disabled={modelIsWorking}
+				on:change={(v) => {
+					trainingData = trainingDataSets[v.detail].data;
+					previewText = trainingDataSets[v.detail].dataPreview;
+					console.log(v.detail)
+				}}
+			/>
+			<TextField label={labelDatasetsText} textarea rows="5" outlined disabled bind:value={previewText} />
+
+			<Button
+				block
+				outlined
+				on:click={train}
+				disabled={!trainingData || modelIsWorking}
+				>train</Button
+			>
+		</div>
 		{#if modelIsWorking}
 			<ProgressCircular />
 			<p>{textWaitForModel}</p>
