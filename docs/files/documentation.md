@@ -19,7 +19,7 @@ Sie können auch LSTM als RNN einsetzen.
 
 ### ***Bestsettings***
 
-<img src="./../images/settings.png" width="600" alt="Model Settings">
+<img src="/../images/settings.png" width="600" alt="Model Settings">
 
 ### ***Results***
 
