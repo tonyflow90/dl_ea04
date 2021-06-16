@@ -19,7 +19,7 @@ Sie können auch LSTM als RNN einsetzen.
 
 ### ***Bestsettings***
 
-<img src="./dl_ea04/images/settings.png" width="600" alt="Model Settings">
+![Model Settings](./../images/settings.png "Model Settings")
 
 ### ***Results***
 

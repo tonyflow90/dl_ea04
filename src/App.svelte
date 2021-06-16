@@ -263,7 +263,6 @@
           on:change={(v) => {
             trainingData = trainingDataSets[v.detail].data;
             previewText = trainingDataSets[v.detail].dataPreview;
-            console.log(v.detail);
           }}
         />
         <TextField
